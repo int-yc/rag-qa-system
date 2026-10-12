@@ -1,0 +1,12 @@
+# ========== 核心依赖 ==========
+langchain==1.0.3
+faiss-cpu
+sentence-transformers
+transformers
+pypdf
+python-docx
+streamlit
+requests
+
+# ========== 可选：向量模型相关 ==========
+# 中文向量模型 bge-small-zh 会自动随 sentence-transformers 下载
