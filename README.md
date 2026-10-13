@@ -1,26 +1,23 @@
-# RAG 智能问答助手
+RAG 智能问答助手
 
-一个基于 **检索增强生成（RAG）** 的文档问答系统：把本地文档建立索引，然后基于文档内容回答用户问题。适合作为大模型应用开发的入门实战项目。
+一个基于检索增强生成（RAG）的文档问答系统：把本地文档建立索引，然后基于文档内容回答用户问题。
 
-## 功能
+功能
+支持读取 `data` 目录下的 **TXT / PDF / Markdown** 文档
 
+文档自动切分 + 向量化，构建 FAISS 向量索引
 
+语义检索：理解 "语义相近" 而非仅仅字面匹配
 
-* 支持读取 `data` 目录下的 **TXT / PDF / Markdown** 文档
+结合大模型（豆包 API）基于文档内容生成准确回答
 
-* 文档自动切分 + 向量化，构建 FAISS 向量索引
+Streamlit 网页交互界面
 
-* 语义检索：理解 "语义相近" 而非仅仅字面匹配
-
-* 结合大模型（豆包 API）基于文档内容生成准确回答
-
-* Streamlit 网页交互界面
-
-## 技术栈
+技术栈
 
 Python・LangChain (可选)・FAISS・sentence-transformers (bge-small-zh)・Streamlit・豆包 API
 
-## 项目结构
+项目结构
 
 
 
@@ -48,15 +45,15 @@ rag\_project/
 └── requirements.txt     # 依赖清单
 ```
 
-## 快速开始
+快速开始
 
 
 
-1. **配置 API Key**：编辑 `config/settings.py`，把 `api_key` 换成你的豆包 API Key（火山引擎控制台获取）
+1. 配置 API Key：编辑 `config/settings.py`，把 `api_key` 换成用户的 API Key
 
-2. **放入文档**：把想检索的文档放进 `data/` 目录
+2. 放入文档：把想检索的文档放进 `data/` 目录
 
-3. **安装依赖**（已建好的 conda 环境可跳过）：
+3. 安装依赖（已建好的 conda 环境可跳过）：
 
 
 
@@ -68,7 +65,7 @@ pip install -r requirements.txt
 
 
 
-1. **启动网页**：
+1. 启动网页：
 
 
 
@@ -88,9 +85,9 @@ python core/rag.py
 
 会进入问答循环，输入问题回车即可，输入 `exit` 退出。
 
-## 国内网络配置（必看）
+国内网络配置（必看）
 
-### 1. 下载向量模型（HuggingFace 被墙）
+1. 下载向量模型（HuggingFace 被墙）
 
 首次构建索引需要从 HuggingFace 下载中文向量模型 `bge-small-zh`，国内直连会超时。
 
@@ -108,7 +105,7 @@ python test\_retrieval.py
 
 模型下载一次后会缓存到本地，之后启动不再需要联网。
 
-### 2. 修改 pip 源（可选，加快依赖安装）
+2. 修改 pip 源（可选，加快依赖安装）
 
 
 
@@ -116,7 +113,7 @@ python test\_retrieval.py
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-## 验证检索是否正常（无需 API Key）
+验证检索是否正常（无需 API Key）
 
 
 
